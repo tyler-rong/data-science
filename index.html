@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,10 @@
             padding: 0;
         }
 
+        html {
+            height: 100%; /* Ensures the html element takes the full height */
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
@@ -21,6 +25,9 @@
             background-color: #e8ecef;
             padding: 20px;
             font-size: 18px;
+            min-height: 100%; /* Ensures body takes at least the full height of the viewport */
+            display: flex; /* Use flexbox to structure the body's content */
+            flex-direction: column; /* Stack children vertically */
         }
 
         header {
@@ -42,6 +49,7 @@
         main {
             display: flex;
             overflow: hidden;
+            flex: 1; /* Allows main to expand and fill available space */
         }
 
         aside, section {
@@ -49,7 +57,6 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            height: 80vh; /* Adjust the height */
             overflow-y: scroll; /* Scrollable content */
         }
 
@@ -59,6 +66,7 @@
 
         section {
             width: 60%; /* Adjust width for Timeline section */
+            margin: 0 10%; /* Center the timeline section with margins */
         }
 
         h2 {
@@ -82,6 +90,7 @@
             padding: 20px 0;
             background-color: #005792;
             color: #fff;
+            margin-top: auto; /* Pushes the footer to the bottom */
         }
 
         /* Responsive design adjustments */
@@ -101,11 +110,12 @@
             aside, section {
                 width: 100%; /* Full width for smaller screens */
                 height: auto; /* Adjust height for better readability */
+                margin: 0; /* Remove margins in smaller screens */
             }
         }
     </style>
 </head>
-<body>
+<body>   
     <header>
         <h1>Data Science History Timeline</h1>
         <p>Explore the milestones in the evolution of Data Science.</p>
