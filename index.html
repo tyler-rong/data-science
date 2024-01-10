@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%;">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,10 @@
             padding: 0;
         }
 
-        html {
-            height: 100%; /* Ensures the html element takes the full height */
+        html, body {
+            height: 100%; /* Full height for the page */
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -23,50 +25,37 @@
             line-height: 1.6;
             color: #333;
             background-color: #e8ecef;
-            padding: 20px;
             font-size: 18px;
-            min-height: 100%; /* Ensures body takes at least the full height of the viewport */
-            display: flex; /* Use flexbox to structure the body's content */
-            flex-direction: column; /* Stack children vertically */
+            display: flex;
+            flex-direction: column;
         }
 
-        header {
+        header, footer {
             background-color: #005792;
             color: #fff;
             text-align: center;
             padding: 20px 0;
         }
 
-        header h1 {
-            margin-bottom: 5px;
-        }
-
-        header p {
-            font-style: italic;
-        }
-
-        /* Horizontal layout for main content */
         main {
             display: flex;
-            overflow: hidden;
-            flex: 1; /* Allows main to expand and fill available space */
-        }
-
-        aside, section {
-            background-color: #fff;
+            flex: 1; /* Stretch main to fill available content height */
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow-y: scroll; /* Scrollable content */
+            background-color: #fff;
         }
 
         aside {
-            width: 20%; /* Adjust width for People and Works sections */
+            flex: 1; /* 1/4 of the space */
+            padding: 20px;
+            border-right: 2px solid #e8ecef; /* Separator */
+            height: calc(100vh - 40px - 40px - 40px); /* Full height minus header, footer, and padding */
         }
 
         section {
-            width: 60%; /* Adjust width for Timeline section */
-            margin: 0 10%; /* Center the timeline section with margins */
+            flex: 2; /* 1/2 of the space */
+            padding: 20px;
+            overflow-y: auto; /* Scrollable content */
+            height: calc(100vh - 40px - 40px - 40px); /* Full height minus header, footer, and padding */
         }
 
         h2 {
@@ -77,45 +66,35 @@
         }
 
         ul {
-            list-style-position: inside;
+            list-style-type: none;
             padding-left: 20px;
         }
 
         li {
-            margin-bottom: 10px;
+            padding-left: 1em;
+            text-indent: -1em;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #005792;
-            color: #fff;
-            margin-top: auto; /* Pushes the footer to the bottom */
+        li::before {
+            content: "• ";
+            color: #005792; /* Bullet color */
         }
 
-        /* Responsive design adjustments */
         @media only screen and (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-            
             main {
-                flex-direction: column; /* Stack sections on smaller screens */
+                flex-direction: column;
             }
 
             aside, section {
-                width: 100%; /* Full width for smaller screens */
-                height: auto; /* Adjust height for better readability */
-                margin: 0; /* Remove margins in smaller screens */
+                width: 100%;
+                height: auto;
+                border-right: none;
+                padding: 10px;
             }
         }
     </style>
 </head>
-<body>   
+<body>
     <header>
         <h1>Data Science History Timeline</h1>
         <p>Explore the milestones in the evolution of Data Science.</p>
